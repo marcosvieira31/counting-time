@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root{
+
+    --light-white: #E0E0E0;
+    --subtitle-gray: #808080;
+    font-family: Righteous, sans-serif;
+
+
+}
+
+body{
+
+    display: grid;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+    grid-template-rows:
+    6rem 30rem 6rem;
+
+    max-width: 1080px;
+    height: 100vh;
+    margin: 0 auto;
+}

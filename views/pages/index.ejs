@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    <%- include('../partials/head.ejs'); %>
+<body>
+
+    <%- include('../partials/header.ejs'); %>
+
+    <main>
+
+        <div id="container">
+            <div class="count-container">
+                <div id="hours" class="number">00</div>
+                <span>Horas</span>
+            </div>
+            <div class="count-container">
+                <div id="minutes" class="number">00</div>
+                <span>Minutos</span>
+            </div>
+            <div class="count-container">
+                <div id="seconds" class="number">00</div>
+                <span>Segundos</span>
+            </div>
+        </div>
+        <div class="control-panel">
+            <div>
+                <button id="five" class="bt-add-time">+5</button>
+                <button id="ten" class="bt-add-time">+10</button>
+                <button id="thirty" class="bt-add-time">+30</button>
+                <button id="sixty" class="bt-add-time">+60</button>
+            </div>
+            <button id="bt-start"> 
+                Iniciar
+            </button>
+            <button id="bt-clear">
+                Limpar
+            </button>
+        </div>
+
+    </main>
+
+    <%- include('../partials/footer.ejs'); %>
+
+</body>
+
+<%- include('../partials/scripts.ejs'); %>
+
+</html>

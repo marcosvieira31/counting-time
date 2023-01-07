@@ -1,0 +1,28 @@
+function addFive(){
+    let newSeconds = parseInt(Seconds.textContent);
+
+    if(newSeconds<55){
+        newSeconds += 5;
+        if(String(newSeconds).length<2){
+            newSeconds = "0"+newSeconds;
+        }
+        Seconds.textContent = String(newSeconds)
+    }else{
+        Seconds.textContent = "00";
+        addMinutes();
+    }
+}
+
+function addMinutes(){
+    let newMinutes = parseInt(Minutes.textContent);
+
+    if(newMinutes<55){
+        newMinutes += 1;
+        if(String(newMinutes).length<2){
+            newMinutes = "0"+newMinutes;
+        }
+        Minutes.textContent = String(newMinutes)
+    }else{
+        Minutes.textContent = "00";
+    }
+}
