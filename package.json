@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ."
+    "start": "node .",
+    "dev": "nodemon .",
+    "livereload": "livereload ./views"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +15,9 @@
   "dependencies": {
     "ejs": "^3.1.8",
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "livereload": "^0.9.3",
+    "nodemon": "^2.0.20"
   }
 }

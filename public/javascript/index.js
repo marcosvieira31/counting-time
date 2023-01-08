@@ -74,3 +74,4 @@ function addZero(digit){
         return stringDigit;
     }
 }
+location.reload(true)  
