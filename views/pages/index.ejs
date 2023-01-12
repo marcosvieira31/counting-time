@@ -1,7 +1,10 @@
 <!DOCTYPE html>
     <%- include('../partials/head.ejs'); %>
 <body>
-
+    <div id="time-out">
+        <p>O tempo acabou!</p>
+        <button id="bt-restart">Reiniciar</button>
+    </div>
     <%- include('../partials/header.ejs'); %>
 
     <main>
@@ -42,9 +45,5 @@
 </body>
 
 <%- include('../partials/scripts.ejs'); %>
-
-<script>
-        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +   ':8080/livereload.js?snipver=1"></' + 'script>')
-</script>
 
 </html>

@@ -1,3 +1,16 @@
 <footer>
 
+    <address>
+        <section>
+            <a href="mailto:<%= autor.email %>"><span><i class="fa-solid fa-envelope"></i></span></a>
+            <a href="http://<%= autor.github %>"><span><i class="fa-brands fa-square-github"></span></i></a>
+        </section>      
+        
+        <section>
+            <p><%= autor.name %></p>
+            <%= autor.ocupation %>
+            <strong><%= autor.city %>, <%= autor.uf %></strong>
+        </section>
+    </address>
+
 </footer>

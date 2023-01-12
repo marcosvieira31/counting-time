@@ -1,77 +1,90 @@
-const btFive = document.getElementById('five');
-const btTen = document.getElementById('ten');
-const btThirty = document.getElementById('thirty');
-const btSixty = document.getElementById('sixty');
+const btFive = document.querySelector('#five');
+const btTen = document.querySelector('#ten');
+const btThirty = document.querySelector('#thirty');
+const btSixty = document.querySelector('#sixty');
 
-const btStart = document.getElementById('bt-start');
-const btClear = document.getElementById('bt-clear');
+const btStart = document.querySelector('#bt-start');
+const btRestart = document.querySelector('#bt-restart');
+const btClear = document.querySelector('#bt-clear');
 
-const Seconds = document.getElementById('seconds');
-const Minutes = document.getElementById('minutes');
-const Hours = document.getElementById('hours');
+const seconds = document.querySelector('#seconds');
+const minutes = document.querySelector('#minutes');
+const hours = document.querySelector('#hours');
 
-let numberControl = 0;
+const timeOverView = document.querySelector('#time-out'); 
+
+var countControl = 0;
+
+function addNumber(counter){
+    counter /= 1000;
+    if(counter < 60){
+        seconds.textContent = counter < 10 ? "0"+String(Math.floor(counter)) : String(Math.floor(counter));
+        minutes.textContent = "00";
+        hours.textContent = "00";
+        return counter;
+    };
+    if(counter >= 60 && counter < 3600){
+        seconds.textContent = (counter%60) < 10 ? "0"+String(Math.floor(counter%60)) : String(Math.floor(counter%60));
+        minutes.textContent = (Math.floor(counter/60)) < 10 ? "0"+String(Math.floor(counter/60)) : String(Math.floor(counter/60));
+        hours.textContent = "00";
+        return counter;
+    }
+    if(counter >= 3600){
+        seconds.textContent = (counter%60) < 10 ? "0"+String(Math.floor(counter%60)) : String(Math.floor(counter%60));
+        minutes.textContent = (Math.floor((counter/60)%60) < 10 ? "0"+String(Math.floor((counter/60)%60)) : String(Math.floor((counter/60)%60)));
+        hours.textContent = (Math.floor(counter/(60*60))) < 10 ? "0"+String(Math.floor(counter/(60*60))) : String(Math.floor(counter/(60*60)))
+        return counter;
+    }
+}
 
 btFive.onclick = () => {
-    numberControl += 5;
-    addTime(numberControl);
+    countControl += 5000;
+    addNumber(countControl);
 }
+
 btTen.onclick = () => {
-    numberControl += 10;
-    addTime(numberControl);
+    countControl += 10000;
+    addNumber(countControl);
 }
+
 btThirty.onclick = () => {
-    numberControl += 30;
-    addTime(numberControl);
+    countControl += 30000;
+    addNumber(countControl);
 }
+
 btSixty.onclick = () => {
-    numberControl += 60;
-    addTime(numberControl);
+    countControl += 60000;
+    addNumber(countControl);
 }
 
 btStart.onclick = () => {
-    this.timeOut = setTimeout(() => {alert("O tempo acabou!")}, numberControl*1000)}
+    
+    let countDown = new Date().getTime() + countControl;
+
+    let counting = setInterval(function(){
+        var now = new Date().getTime();
+
+        let diference = countDown - now;
+        let secondDelay = Math.floor(diference+1000);
+        console.log(secondDelay);
+        let x = addNumber(secondDelay)
+        if(x<1){
+            timeOverView.style.display = "flex";
+            clearInterval(counting)
+        }    
+    
+    }, 1000);
+}
 
 btClear.onclick = () => {
-    numberControl = 0;
-    Seconds.textContent = "00";
-    Minutes.textContent = "00";
-    Hours.textContent = "00";
-    clearTimeout(this.timeOut);
+    countControl = 0;
+    seconds.textContent = "00";
+    minutes.textContent = "00";
+    hours.textContent = "00";
 }
 
-function addTime(num){
-        
-    if(num<60){
-        Seconds.textContent = addZero(num);
-    }
-    if(num >= 60 && num < 3600) {
-        let minCount = Math.trunc(num/60);
-        let secCount = Math.round(((num/60)-minCount)*60);
-        
-        Minutes.textContent = addZero(minCount);
-        Seconds.textContent = addZero(secCount);        
-    }
-    if(num>=3600){
-        let hourCount = Math.trunc(num/3600);
-        let minTrunc = (num/60)-(hourCount*60);
-        let minCount = Math.trunc(minTrunc);
-        let secCount = Math.round(((minTrunc)-minCount)*60);
-
-        Hours.textContent = addZero(hourCount);
-        Minutes.textContent = addZero(minCount);
-        Seconds.textContent = addZero(secCount);  
-    }
-
+btRestart.onclick = () => {
+    countControl = 0;
+    timeOverView.style.display = "none";
 }
 
-function addZero(digit){
-    let stringDigit = String(digit)
-    if(stringDigit.length < 2){
-        stringDigit = "0"+stringDigit
-        return stringDigit; 
-    }else{
-        return stringDigit;
-    }
-}
-location.reload(true)  

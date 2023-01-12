@@ -1,0 +1,32 @@
+footer{
+
+}
+
+address{
+    display: flex;
+    justify-content: center;
+}
+
+section:first-child{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section + section{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;   
+    line-height: 1.6rem;
+}
+
+a > span{
+    color: #000;
+    background-color: #fff;
+    font-size: 2rem;
+}
+
+address a{
+    margin-inline: 0.5rem;
+}
