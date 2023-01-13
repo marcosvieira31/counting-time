@@ -2,15 +2,18 @@
 
     <address>
         <section>
-            <a href="mailto:<%= autor.email %>"><span><i class="fa-solid fa-envelope"></i></span></a>
-            <a href="http://<%= autor.github %>"><span><i class="fa-brands fa-square-github"></span></i></a>
-        </section>      
-        
-        <section>
-            <p><%= autor.name %></p>
+            <h3><%= autor.name %></h3>
+            <br>
             <%= autor.ocupation %>
             <strong><%= autor.city %>, <%= autor.uf %></strong>
         </section>
+
+        <section>
+            <h3>Contato</h3>
+            <br>
+            <a href="mailto:<%= autor.email %>"><span><i class="fa-solid fa-envelope"></i></span>marcosnd.31@gmail.com</a>
+            <a href="http://<%= autor.github %>"><span><i class="fa-brands fa-square-github"></span></i>@marcosvieira31</a>
+        </section>      
     </address>
 
 </footer>

@@ -1,5 +1,10 @@
 footer{
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F2F2F2;
+    width: 100%;
+    height: 100%;
 }
 
 address{
@@ -7,26 +12,35 @@ address{
     justify-content: center;
 }
 
-section:first-child{
+section + section{
+    margin-left: 5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
-section + section{
+section{
     display: flex;
     flex-direction: column;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;   
-    line-height: 1.6rem;
+    line-height: 1.3rem;
+    cursor: default;
+}
+
+section h3{
+    color: var(--light-red);
 }
 
 a > span{
     color: #000;
-    background-color: #fff;
-    font-size: 2rem;
+    font-size: 1rem;
+    margin-right: 0.5rem;
 }
 
 address a{
     margin-inline: 0.5rem;
+    text-decoration: none;
+    color: currentColor;
+    
 }

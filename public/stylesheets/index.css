@@ -2,7 +2,8 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 5rem;
+    justify-content: center;
+
 }
 
 #container{
@@ -11,7 +12,7 @@ main{
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .count-container{
@@ -19,65 +20,101 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--light-red);
+    border-radius: 0.3rem;
 }
 
 .number{
     height: 80%;
     width: 100%;
-    background-color: var(--light-white);
-    margin-bottom: 0.5rem;
+    color:var(--light-white);
 
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 7rem;
+    font-family:'Merriweather Sans', sans-serif;
+    font-weight: 800;
+    font-size: 6.5rem;
+
+    cursor: default;
 }
 
-span{
+main span{
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.8rem;
+    cursor: default;
+}
+
+#control-panel{
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#control-panel h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 300;
+    cursor: default;
+}
+
+#control-panel h3::before{
+    content: " ";
     background-color: var(--subtitle-gray);
-    width: 100%;
-    font-size: 1.5rem;
-    text-align: center;
+    width: 15rem;
+    height: 0.05rem;
+    display: block;
+    margin-right: 1rem;
 }
 
-span, .number{
-    border-radius: 0.3rem;
-}
-
-.control-panel{
-    width: 100%;
-    text-align: center;
+#control-panel h3::after{
+    content: " ";
+    background-color: var(--subtitle-gray);
+    width: 15rem;
+    height: 0.05rem;
+    display: block;
+    margin-left: 1rem;
 }
 
 button {
-    width: 5rem;
-    height: 2rem;
+    width: 6rem;
+    height: 2.5rem;
+
+    background-color: var(--light-red);
+    border-radius: 0.3rem;
+    border-style: none;
+    color: var(--light-white);
+
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
-#five{
-    margin-left: 0;
-}
-
-#sixty{
-    margin-right: 0;
+button:hover{
+    filter: brightness(0.9);
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .bt-add-time{
-    margin: 2rem 4rem;
-}
-
-#start{
+    margin-inline: 1rem;
     margin-top: 2rem;
 }
 
 #bt-start, #bt-clear{
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     margin-inline: 3rem;
 }
 
 #time-out{
     background-color: rgba(120, 120, 120, 0.95);
-    position: absolute;
+    position: fixed;
+    left: 0;
+    top: 0;
     display: none;
     flex-direction: column;
     justify-content: center;

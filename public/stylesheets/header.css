@@ -2,9 +2,16 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 3rem;
+    margin-top: 1rem;
+    height: fit-content;
 }
 
 h1{
     font-size: 5rem;
+    line-height: 5rem;
+    text-align: center;
+}
+
+header span{
+    color: var(--light-red);
 }

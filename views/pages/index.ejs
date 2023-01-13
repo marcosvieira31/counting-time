@@ -1,13 +1,15 @@
 <!DOCTYPE html>
     <%- include('../partials/head.ejs'); %>
 <body>
-    <div id="time-out">
-        <p>O tempo acabou!</p>
-        <button id="bt-restart">Reiniciar</button>
-    </div>
+
     <%- include('../partials/header.ejs'); %>
 
     <main>
+
+        <div id="time-out">
+            <p>O tempo acabou!</p>
+            <button id="bt-restart">Reiniciar</button>
+        </div>
 
         <div id="container">
             <div class="count-container">
@@ -23,7 +25,8 @@
                 <span>Segundos</span>
             </div>
         </div>
-        <div class="control-panel">
+        <div id="control-panel">
+            <h3>Adicionar segundos</h3> 
             <div>
                 <button id="five" class="bt-add-time">+5</button>
                 <button id="ten" class="bt-add-time">+10</button>

@@ -5,9 +5,10 @@
 
 :root{
 
-    --light-white: #E0E0E0;
+    --light-white: #fefefe;
     --subtitle-gray: #808080;
-    font-family: Righteous, sans-serif;
+    --light-red: #D25c45;
+    font-family: 'Merriweather Sans', sans-serif;
 
 
 }
@@ -16,13 +17,15 @@ body{
 
     position: relative;
 
+    background-color: #fefefe;
+
     display: grid;
     grid-template-areas:
     "header"
     "main"
     "footer";
     grid-template-rows:
-    6rem 34rem 6rem;
+    12rem 28rem auto;
 
     height: 100vh;
     margin: 0 auto;
