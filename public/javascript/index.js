@@ -14,11 +14,13 @@ const hours = document.querySelector('#hours');
 const timeOverView = document.querySelector('#time-out'); 
 
 var countControl = 0;
+var alarmAudio = new Audio('audio/alarm.mp3');
+alarmAudio.loop = 'true';
 
 function addNumber(counter){
     counter /= 1000;
     if(counter < 60){
-        seconds.textContent = counter < 10 ? "0"+String(Math.floor(counter)) : String(Math.floor(counter));
+        seconds.textContent = Math.floor(counter).toString().padStart(2, '0');
         minutes.textContent = "00";
         hours.textContent = "00";
         return counter;
@@ -58,22 +60,29 @@ btSixty.onclick = () => {
 }
 
 btStart.onclick = () => {
+    if(!countControl){
+        timeOverView.style.display = "flex";
+        alarmAudio.play();
+    }else{
     
-    let countDown = new Date().getTime() + countControl;
+        let countDown = new Date().getTime() + countControl;
 
-    let counting = setInterval(function(){
-        var now = new Date().getTime();
+        let counting = setInterval(function(){
+            var now = new Date().getTime();
 
-        let diference = countDown - now;
-        let secondDelay = Math.floor(diference+1000);
-        console.log(secondDelay);
-        let x = addNumber(secondDelay)
-        if(x<1){
-            timeOverView.style.display = "flex";
-            clearInterval(counting)
-        }    
-    
-    }, 1000);
+            let diference = countDown - now;
+            let secondDelay = Math.floor(diference+1000);
+            console.log(diference);
+            let x = addNumber(secondDelay)
+            if(x<1){
+                timeOverView.style.display = "flex";
+                alarmAudio.play();
+                clearInterval(counting)
+            }    
+        
+        }, 1000);
+    }
+
 }
 
 btClear.onclick = () => {
@@ -85,6 +94,7 @@ btClear.onclick = () => {
 
 btRestart.onclick = () => {
     countControl = 0;
+    alarmAudio.pause();
     timeOverView.style.display = "none";
 }
 

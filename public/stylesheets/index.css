@@ -111,7 +111,7 @@ button:hover{
 }
 
 #time-out{
-    background-color: rgba(120, 120, 120, 0.95);
+    background-color: rgba(106, 99, 99, 0.95);
     position: fixed;
     left: 0;
     top: 0;
@@ -122,8 +122,37 @@ button:hover{
     gap: 5rem;
     width: 100%;
     height: 100%;
+    z-index: 1;
 }
 
 #time-out p{
     font-size: 6rem;
+    color: var(--light-white);
+    font-weight: 600;
+}
+
+#time-out img{
+    width: 20rem;
+    animation: ease-in-out alarm 0.3s infinite;
+}
+
+#time-out button{
+    width: 12rem;
+    height: 4rem;
+    font-size: 2rem;
+}
+
+@keyframes alarm{
+    0%{
+        transform: rotate(0deg);
+    }
+    30%{
+        transform: rotate(45deg);
+    }
+    60%{
+        transform: rotate(0deg);
+    }
+    90%{
+        transform: rotate(-45deg);
+    }
 }

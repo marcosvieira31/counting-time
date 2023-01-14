@@ -25,8 +25,13 @@ body{
     "main"
     "footer";
     grid-template-rows:
-    12rem 28rem auto;
+    10rem 27rem auto;
 
     height: 100vh;
     margin: 0 auto;
+    padding-top: 1rem;
+}
+
+title{
+    cursor: default;
 }
